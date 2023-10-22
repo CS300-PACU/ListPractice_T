@@ -1,0 +1,21 @@
+----Empty List----
+
+Entire List: 
+
+0 appears 0 times!
+
+Odd Locations in List: 
+----FULL  List----
+
+Entire List: cs300!
+
+0 appears 2 times!
+
+Odd Locations in List: c30
+----Empty List----
+
+Entire List: 
+
+0 appears 0 times!
+
+Odd Locations in List: 
