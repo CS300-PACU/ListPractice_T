@@ -62,6 +62,7 @@ valgrind: bin/main
 checkOutput: bin/main
 	bin/main > output.txt
 	diff output.txt expectedOutput.txt
+	rm output.txt
 
 # https://www.gnu.org/software/make/manual/html_node/Chained-Rules.html
 # https://www.gnu.org/software/make/manual/html_node/Special-Targets.html
