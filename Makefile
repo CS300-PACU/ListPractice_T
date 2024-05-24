@@ -7,9 +7,10 @@
 # Purpose:    
 #############################################################################
 
-CC=gcc
+CC=clang
 CFLAGS=-g -Wall
-VALGRIND_FLAGS=-v --leak-check=yes --track-origins=yes --leak-check=full --show-leak-kinds=all
+VALGRIND_FLAGS=-v --leak-check=yes --track-origins=yes --leak-check=full \
+--show-leak-kinds=all
 ENSCRIPT_FLAGS=-C -T 2 -p - -M Letter -Ec --color -fCourier8
 
 # -g  include debug symbols in the executable so that the code can be
@@ -23,10 +24,6 @@ ENSCRIPT_FLAGS=-C -T 2 -p - -M Letter -Ec --color -fCourier8
 # built by this Makefile.  This allows us to add the executable name
 # in one place and have both all and clean updated. 
 
-# Note that the list is spanning two lines.  The \ character indicates that
-# the list continues on the next line.  WARNING: There must be no characters
-# other than the newline after the \.  A blank space after the \ gives errors. 
-
 TARGETS=bin/main
 
 all: bin ${TARGETS}
@@ -37,10 +34,10 @@ bin:
 # Automatically generate rules
 # https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html
 bin/%: bin/%.o
-	gcc -o $@ -g -Wall $^
+	${CC} -o $@ ${CFLAGS} $^
 
 bin/%.o: src/%.c
-	gcc -c -o $@ -g -Wall $<
+	${CC} -c -o $@ ${CFLAGS} $<
 
 
 # Custom rules
